@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+metadata:
+  name: k8s-sample-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels: k8s-sample-deploy
+  template:
+    metadata:
+      labels:
+        app: k8s-sample-deploy
+    spec:
+      containers:
+        - name: k8s-sample-deploy
+          image: us-central1-docker.pkg.dev/gcp-28-challange/gcp-picorom-1/k8-sample-image:latest
+          ports:
+            - containerPort: 8080
